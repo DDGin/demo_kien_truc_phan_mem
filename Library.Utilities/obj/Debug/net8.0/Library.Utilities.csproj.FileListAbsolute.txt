@@ -1,0 +1,17 @@
+C:\Users\PV\source\repos\Library.Web\Library.Utilities\bin\Debug\net8.0\Library.Utilities.deps.json
+C:\Users\PV\source\repos\Library.Web\Library.Utilities\bin\Debug\net8.0\Library.Utilities.dll
+C:\Users\PV\source\repos\Library.Web\Library.Utilities\bin\Debug\net8.0\Library.Utilities.pdb
+C:\Users\PV\source\repos\Library.Web\Library.Utilities\bin\Debug\net8.0\Library.Models.dll
+C:\Users\PV\source\repos\Library.Web\Library.Utilities\bin\Debug\net8.0\Library.Repositories.dll
+C:\Users\PV\source\repos\Library.Web\Library.Utilities\bin\Debug\net8.0\Library.Models.pdb
+C:\Users\PV\source\repos\Library.Web\Library.Utilities\bin\Debug\net8.0\Library.Repositories.pdb
+C:\Users\PV\source\repos\Library.Web\Library.Utilities\obj\Debug\net8.0\Library.Utilities.csproj.AssemblyReference.cache
+C:\Users\PV\source\repos\Library.Web\Library.Utilities\obj\Debug\net8.0\Library.Utilities.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\PV\source\repos\Library.Web\Library.Utilities\obj\Debug\net8.0\Library.Utilities.AssemblyInfoInputs.cache
+C:\Users\PV\source\repos\Library.Web\Library.Utilities\obj\Debug\net8.0\Library.Utilities.AssemblyInfo.cs
+C:\Users\PV\source\repos\Library.Web\Library.Utilities\obj\Debug\net8.0\Library.Utilities.csproj.CoreCompileInputs.cache
+C:\Users\PV\source\repos\Library.Web\Library.Utilities\obj\Debug\net8.0\Library..F8382218.Up2Date
+C:\Users\PV\source\repos\Library.Web\Library.Utilities\obj\Debug\net8.0\Library.Utilities.dll
+C:\Users\PV\source\repos\Library.Web\Library.Utilities\obj\Debug\net8.0\refint\Library.Utilities.dll
+C:\Users\PV\source\repos\Library.Web\Library.Utilities\obj\Debug\net8.0\Library.Utilities.pdb
+C:\Users\PV\source\repos\Library.Web\Library.Utilities\obj\Debug\net8.0\ref\Library.Utilities.dll
