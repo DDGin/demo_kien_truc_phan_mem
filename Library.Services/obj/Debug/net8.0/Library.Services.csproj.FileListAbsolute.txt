@@ -1,0 +1,17 @@
+C:\Users\PV\source\repos\Library.Web\Library.Services\bin\Debug\net8.0\Library.Services.deps.json
+C:\Users\PV\source\repos\Library.Web\Library.Services\bin\Debug\net8.0\Library.Services.dll
+C:\Users\PV\source\repos\Library.Web\Library.Services\bin\Debug\net8.0\Library.Services.pdb
+C:\Users\PV\source\repos\Library.Web\Library.Services\obj\Debug\net8.0\Library.Services.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\PV\source\repos\Library.Web\Library.Services\obj\Debug\net8.0\Library.Services.AssemblyInfoInputs.cache
+C:\Users\PV\source\repos\Library.Web\Library.Services\obj\Debug\net8.0\Library.Services.AssemblyInfo.cs
+C:\Users\PV\source\repos\Library.Web\Library.Services\obj\Debug\net8.0\Library.Services.csproj.CoreCompileInputs.cache
+C:\Users\PV\source\repos\Library.Web\Library.Services\obj\Debug\net8.0\Library.Services.dll
+C:\Users\PV\source\repos\Library.Web\Library.Services\obj\Debug\net8.0\refint\Library.Services.dll
+C:\Users\PV\source\repos\Library.Web\Library.Services\obj\Debug\net8.0\Library.Services.pdb
+C:\Users\PV\source\repos\Library.Web\Library.Services\obj\Debug\net8.0\ref\Library.Services.dll
+C:\Users\PV\source\repos\Library.Web\Library.Services\bin\Debug\net8.0\Library.Models.dll
+C:\Users\PV\source\repos\Library.Web\Library.Services\bin\Debug\net8.0\Library.Repositories.dll
+C:\Users\PV\source\repos\Library.Web\Library.Services\bin\Debug\net8.0\Library.Repositories.pdb
+C:\Users\PV\source\repos\Library.Web\Library.Services\bin\Debug\net8.0\Library.Models.pdb
+C:\Users\PV\source\repos\Library.Web\Library.Services\obj\Debug\net8.0\Library.Services.csproj.AssemblyReference.cache
+C:\Users\PV\source\repos\Library.Web\Library.Services\obj\Debug\net8.0\Library..9FA24DEF.Up2Date
