@@ -1,0 +1,123 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Library.Web</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css" />
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="px-3 mb-4">
+            <h4>Dashboard</h4>
+        </div>
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a asp-controller="Home" asp-action="Index" class="nav-link active">
+                    <i class="fas fa-home me-2"></i> Dashboard
+                </a>
+            </li>
+            <li class="nav-item">
+                <a asp-controller="Members" asp-action="Index" class="nav-link">
+                    <i class="fas fa-users me-2"></i> Members
+                </a>
+            </li>
+            <li class="nav-item">
+                <a asp-controller="Book" asp-action="Index" class="nav-link">
+                    <i class="fas fa-book me-2"></i> Books
+                </a>
+            </li>
+            <li class="nav-item">
+                <a asp-controller="Category" asp-action="Index" class="nav-link">
+                    <i class="fas fa-list me-2"></i> Categories
+                </a>
+            </li>
+            <li class="nav-item">
+                <a asp-controller="Author" asp-action="Index" class="nav-link">
+                    <i class="fas fa-user-edit me-2"></i> Authors
+                </a>
+            </li>
+            <li class="nav-item">
+                <a asp-controller="Issued" asp-action="Index" class="nav-link">
+                    <i class="fas fa-share me-2"></i> Issued
+                </a>
+            </li>
+            <li class="nav-item">
+                <a asp-controller="Returned" asp-action="Index" class="nav-link">
+                    <i class="fas fa-undo me-2"></i> Returned
+                </a>
+            </li>
+            <li class="nav-item">
+                <a asp-controller="NotReturned" asp-action="Index" class="nav-link">
+                    <i class="fas fa-exclamation-circle me-2"></i> Not Returned
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Content Area -->
+    <div class="content">
+        <!-- Top Navbar -->
+        <nav class="navbar navbar-expand-sm navbar-light bg-white border-bottom box-shadow top-navbar">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-controller="Home" asp-action="Index">Library.Web</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink">
+                                <i class="fas fa-user-circle"></i>
+                                Welcome
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" href="#">Profile</a>
+                                <a class="dropdown-item" href="#">Settings</a>
+                                <a class="dropdown-item" href="#">Logout</a>
+
+                            </div>
+                        </li>
+                    </ul>
+                    @* <partial name="_LoginPartial" /> *@
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <main role="main" class="pb-3">
+                @RenderBody()
+            </main>
+        </div>
+
+        <!-- Footer -->
+        <footer class="border-top footer text-muted mt-auto py-3">
+            <div class="container">
+                &copy; 2025 - Library.Web -
+                <a asp-controller="Home" asp-action="Privacy">Privacy</a>
+            </div>
+        </footer>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

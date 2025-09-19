@@ -1,0 +1,207 @@
+﻿@{
+    ViewData["Title"] = "Book Management";
+}
+
+<h2>Book Management</h2>
+
+<div class="mb-2">
+    <button class="btn btn-primary" onclick="showCreateModal()">Add Book</button>
+</div>
+
+<table id="bookTable" class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>ISBN</th>
+            <th>Category</th>
+            <th>Author</th>
+            <th>Total</th>
+            <th>Available</th>
+            <th style="width:180px">Actions</th>
+        </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+
+<!-- Modal for Create/Edit -->
+<div class="modal fade" id="bookModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <form id="bookForm">
+                <div class="modal-header">
+                    <h5 class="modal-title">Book</h5>
+                    <button type="button" class="close" data-bs-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" id="Id" name="Id" />
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Title</label>
+                                <input class="form-control" id="Title" name="Title" required />
+                            </div>
+                            <div class="form-group mt-2">
+                                <label>ISBN</label>
+                                <input class="form-control" id="ISBN" name="ISBN" />
+                            </div>
+                            <div class="form-group mt-2">
+                                <label>Category</label>
+                                <select class="form-control" id="CategoryId" name="CategoryId" required></select>
+                            </div>
+                            <div class="form-group mt-2">
+                                <label>Author</label>
+                                <select class="form-control" id="AuthorId" name="AuthorId" required></select>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Description</label>
+                                <textarea class="form-control" id="Description" name="Description"></textarea>
+                            </div>
+                            <div class="form-group mt-2">
+                                <label>Total Quantity</label>
+                                <input type="number" class="form-control" id="QuantityTotal" name="QuantityTotal" />
+                            </div>
+                            <div class="form-group mt-2">
+                                <label>Available Quantity</label>
+                                <input type="number" class="form-control" id="QuantityAvailable" name="QuantityAvailable" />
+                            </div>
+                            <div class="form-group mt-2">
+                                <label>Image URL</label>
+                                <input class="form-control" id="ImageCover" name="ImageCover" />
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-success">Save</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script>
+        var table;
+
+        $(document).ready(function () {
+            // Load DataTable
+            table = $('#bookTable').DataTable({
+                ajax: {
+                    url: '/Book/GetAll',
+                    type: 'GET',
+                    datatype: 'json'
+                },
+                columns: [
+                    { data: 'title' },
+                    { data: 'isbn' },
+                    { data: 'categoryName' },
+                    { data: 'authorName' },
+                    { data: 'quantityTotal' },
+                    { data: 'quantityAvailable' },
+                    {
+                        data: 'id',
+                        render: function (data) {
+                            return `
+                                <button class="btn btn-sm btn-warning" onclick="editBook('${data}')">Edit</button>
+                                <button class="btn btn-sm btn-danger" onclick="deleteBook('${data}')">Delete</button>`;
+                        }
+                    }
+                ]
+            });
+
+            // Submit form
+            $('#bookForm').submit(function (e) {
+                e.preventDefault();
+                var id = $('#Id').val();
+                var url = id ? '/Book/Update' : '/Book/Create';
+
+                $.ajax({
+                    url: url,
+                    type: 'POST',
+                    data: $(this).serialize(),
+                    success: function (res) {
+                        if (res.success) {
+                            $('#bookModal').modal('hide');
+                            table.ajax.reload();
+                            alert(res.message);
+                        } else {
+                            alert(res.message);
+                        }
+                    }
+                });
+            });
+
+            // Load Category + Author list khi mở trang
+            loadDropdowns();
+        });
+
+        function loadDropdowns() {
+            $.get('/Category/GetAll', function (res) {
+                var categories = res.data;
+                $('#CategoryId').empty();
+                $.each(categories, function (i, item) {
+                    $('#CategoryId').append($('<option>', {
+                        value: item.id,
+                        text: item.name
+                    }));
+                });
+            });
+
+            $.get('/Author/GetAll', function (res) {
+                var authors = res.data;
+                $('#AuthorId').empty();
+                $.each(authors, function (i, item) {
+                    $('#AuthorId').append($('<option>', {
+                        value: item.id,
+                        text: item.name
+                    }));
+                });
+            });
+        }
+
+        function showCreateModal() {
+            $('#bookForm')[0].reset();
+            $('#Id').val('');
+            $('#bookModal').modal('show');
+        }
+
+        function editBook(id) {
+            $.get('/Book/GetBookById', { id: id }, function (res) {
+                $('#Id').val(res.id);
+                $('#Title').val(res.title);
+                $('#ISBN').val(res.isbn);
+                $('#CategoryId').val(res.categoryId);
+                $('#AuthorId').val(res.authorId);
+                $('#QuantityTotal').val(res.quantityTotal);
+                $('#QuantityAvailable').val(res.quantityAvailable);
+                $('#Description').val(res.description);
+                $('#ImageCover').val(res.imageCover);
+                $('#bookModal').modal('show');
+            });
+        }
+
+        function deleteBook(id) {
+            if (confirm('Are you sure you want to delete this book?')) {
+                $.ajax({
+                    url: '/Book/Delete?id=' + id,
+                    type: 'DELETE',
+                    success: function (res) {
+                        if (res.success) {
+                            table.ajax.reload();
+                            alert(res.message);
+                        } else {
+                            alert(res.message);
+                        }
+                    }
+                });
+            }
+        }
+    </script>
+}
